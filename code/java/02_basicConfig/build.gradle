@@ -1,0 +1,51 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'mysvc'
+    version =  '0.1.0'
+}
+
+//sourceCompatibility = 1.5
+//version = '1.0'
+
+repositories {
+//    jcenter()
+//    mavenLocal()
+    mavenCentral()
+    maven { url 'http://repo.spring.io/milestone' }
+}
+
+dependencies {
+    // tag::jetty[]
+//    compile("org.springframework.boot:spring-boot-starter-web") {
+//        exclude module: "spring-boot-starter-tomcat"
+//    }
+//    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+
+    // tag::actuator[]
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // end::actuator[]
+    //compile 'org.springframework.cloud:spring-cloud-starters:1.0.0.RC3'
+    compile 'org.springframework.cloud:spring-cloud-config-server:1.0.0.RC3'
+    //compile 'org.springframework.cloud:spring-cloud-config-client:1.0.0.RC3'
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}

@@ -1,0 +1,6 @@
+#!/bin/bash
+#./gradlew build
+java -jar build/libs/mysvc-0.1.0.jar
+
+# https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-spring-cloud-and-netflix-s-eureka
+# monitor registry: http://localhost:8761

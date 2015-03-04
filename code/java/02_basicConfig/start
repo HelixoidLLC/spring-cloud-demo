@@ -1,0 +1,8 @@
+#!/bin/bash
+./gradlew build
+GREETING="Yo" java -jar build/libs/mysvc-0.1.0.jar
+# java -jar build/libs/mysvc-0.1.0.jar --greeting="whoot" --server.port=9000 --spring.config.name=production
+# java -jar build/libs/mysvc-0.1.0.jar --spring.profiles.active=spanish
+
+# spring.config.name - default application, can be comma-separated list
+# spring.config.location - a Resource path, overrides name

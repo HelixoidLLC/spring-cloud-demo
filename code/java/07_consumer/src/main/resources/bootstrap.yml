@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: consumer
+  cloud:
+    config:
+      enabled: false
+#      uri: ${SPRING_CONFIG_URI:http://localhost:8888}

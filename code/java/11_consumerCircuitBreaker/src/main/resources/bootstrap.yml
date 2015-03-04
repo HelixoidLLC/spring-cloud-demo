@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: consumer
+  cloud:
+    config:
+      enabled: false

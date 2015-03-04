@@ -1,0 +1,81 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'mysvc'
+    version =  '0.1.0'
+}
+springBoot {
+    requiresUnpack = ['com.netflix.eureka:eureka-core','com.netflix.eureka:eureka-client']
+}
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+//version = '1.0'
+
+repositories {
+//    jcenter()
+//    mavenLocal()
+    mavenCentral()
+    maven { url 'https://repo.spring.io/snapshot' }
+    maven { url 'http://repo.spring.io/milestone' }
+}
+
+dependencies {
+    // tag::jetty[]
+//    compile("org.springframework.boot:spring-boot-starter-web") {
+//        exclude module: "spring-boot-starter-tomcat"
+//    }
+//    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+
+    // tag::tomcat[]
+    compile("org.springframework.boot:spring-boot-starter-web") {
+//        exclude module: "org.springframework.boot:spring-boot-starter-logging"
+    }
+    // end::tomcat[]
+
+//    compile "org.springframework.boot:spring-boot-starter-data-mongodb"
+/*
+    compile ('org.springframework.cloud:spring-cloud-starter-eureka-server:1.0.0.RC3') {
+        exclude module: "ch.qos.logback:logback-classic"
+//        exclude module: 'logback-classic'
+//        exlude module: "org.mortbay.jetty:servlet-api"
+    }
+*/
+
+//    compile("org.springframework.boot:spring-boot-starter")
+//        exclude module: "org.springframework.boot:spring-boot-starter-logging"
+//    }
+//    compile("org.springframework.boot:spring-boot-starter-log4j")
+
+    compile("org.springframework.cloud:spring-cloud-starter-eureka:1.0.0.BUILD-SNAPSHOT")
+
+
+    //compile("org.springframework.cloud:spring-cloud-starter:1.0.0.RC3")
+    compile 'org.springframework.cloud:spring-cloud-config-client:1.0.0.BUILD-SNAPSHOT'
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-remote-shell")
+
+    //compile 'org.springframework.cloud:spring-cloud-starters:1.0.0.RC3'
+    compile 'org.springframework.cloud:spring-cloud-config-server:1.0.0.BUILD-SNAPSHOT'
+//    compile 'org.springframework.cloud:spring-cloud-starter-bus-amqp:1.0.0.RC3'
+    compile 'org.springframework.cloud:spring-cloud-commons:1.0.0.BUILD-SNAPSHOT'
+
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
