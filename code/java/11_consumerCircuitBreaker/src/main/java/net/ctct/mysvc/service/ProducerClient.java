@@ -2,13 +2,11 @@ package net.ctct.mysvc.service;
 
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.stereotype.Component;
 
 @Component
-@EnableCircuitBreaker
-@EnableHystrix
+//@EnableCircuitBreaker
+//@EnableHystrix
 public class ProducerClient {
 
 //    @Autowired
