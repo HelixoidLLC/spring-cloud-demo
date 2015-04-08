@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: distConfigApp
+  cloud:
+    config:
+      # Do not be the config client
+      enabled: false
+      # server:
+        # Load it's own properties from the repository
+        # bootstrap: true
+#  encrypt:
+#    key: foobar
+
