@@ -1,0 +1,41 @@
+info:
+  component: ZuulRouter
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+server:
+  port: 8181
+
+# Separates management port from the main one
+#management:
+#  port: 8990
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client:
+    registryFetchIntervalSeconds: 5
+##    serviceUrl:
+##      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+
+zuul:
+  routes:
+    strings:
+      path: /microservicestring/**
+      serviceId: microservicestring
+    locations:
+      path: /locate/**
+      serviceId: locator
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
