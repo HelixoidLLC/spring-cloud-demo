@@ -9,7 +9,9 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 public class Application {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(Application.class).run(args);
+        new SpringApplicationBuilder(Application.class).properties(
+                "spring.config.name:eureka", "logging.level.com.netflix.discovery:OFF")
+                .run(args);
     }
 
 }
