@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 public class SampleController {
@@ -27,10 +28,12 @@ public class SampleController {
     String consume() {
 
         List<ServiceInstance> instances = discoveryClient.getInstances("PRODUCER");
+        System.out.println("Got instances: " + instances.size());
         if (instances.size() == 0)
             return "NaN";
 
-        ServiceInstance instance = instances.get(0);
+        Random randomGenerator = new Random(System.currentTimeMillis());
+        ServiceInstance instance = instances.get(randomGenerator.nextInt(instances.size()));
 
         URI producerUri = URI.create("http://" + instance.getHost() + ":" + instance.getPort());
 
