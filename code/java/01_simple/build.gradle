@@ -12,19 +12,23 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+project.ext {
+    springBootVersion = '1.2.2.RELEASE'
+}
+
 jar {
     baseName = 'mysvc'
     version =  '0.1.0'
 }
 
-//sourceCompatibility = 1.5
+sourceCompatibility = 1.7
 //version = '1.0'
 
 repositories {
 //    jcenter()
 //    mavenLocal()
     mavenCentral()
-    maven { url 'http://repo.spring.io/milestone' }
+    maven { url 'http://repo.spring.io/release' }
 }
 
 dependencies {
