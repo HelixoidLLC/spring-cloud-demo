@@ -1,3 +1,10 @@
 spring:
   application:
     name: demo
+  cloud:
+    config:
+      # Do not be the config client
+      enabled: true
+      # server:
+        # Load it's own properties from the repository
+        # bootstrap: true

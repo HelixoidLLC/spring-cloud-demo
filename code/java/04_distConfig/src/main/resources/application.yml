@@ -1,9 +1,30 @@
-#server:
-#  port: 8888
+server:
+  port: 8080
 
-spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/IgorShare/spring-cloud-config-demo.git
+greeting: Hola
+
+#management:
+#  context-path: /admin
+
+endpoints:
+  shutdown:
+    enabled: true
+  restart:
+    enabled: true
+  health:
+    sensitive: false
+
+#spring:
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
+  # declare the default Spring profile, which can be overridden at the command=line, eg java -jar -Dspring.profiles.active=production foo.war
+#  profiles:
+#    activ: default
+#  rabbitmq:
+#    addresses: localhost:5672
+#    host: 192.168.44.130
+#    port: 5672
+#    virtualHost: /
+#    username: guest
+#    password: guest
