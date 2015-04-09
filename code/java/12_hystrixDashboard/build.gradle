@@ -22,7 +22,7 @@ project.ext {
 }
 
 jar {
-    baseName = 'mysvc'
+    baseName = 'hystrix_dashboard'
     version =  '0.1.0'
 }
 springBoot {
