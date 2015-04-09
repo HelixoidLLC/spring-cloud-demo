@@ -5,13 +5,13 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-//@EnableConfigServer
 @EnableDiscoveryClient
+//@EnableTurbineAmqp
 public class Application {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(Application.class)
-                .web(false)
+                .web(true)
                 .showBanner(false)
                 .run(args);
     }

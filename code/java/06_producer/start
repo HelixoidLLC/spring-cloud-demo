@@ -1,6 +1,6 @@
 #!/bin/bash
 #./gradlew build
-java -jar build/libs/mysvc-0.1.0.jar --server.port=9000
+java -jar build/libs/producer-0.1.0.jar --server.port=9000
 
 # ssh -p 2000 user@localhost
 
@@ -8,3 +8,5 @@ java -jar build/libs/mysvc-0.1.0.jar --server.port=9000
 # spring.config.location - a Resource path, overrides name
 
 # Samples of Spring Boot apps: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples
+
+# https://github.com/Netflix/Hystrix/wiki/How-it-Works

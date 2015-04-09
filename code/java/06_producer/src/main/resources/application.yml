@@ -1,14 +1,26 @@
 info:
-  component: Config Samples
+  component: Producer
+
+spring:
+  application:
+    name: producer
+
+server:
+  port: ${PORT:8080}
+
 endpoints:
   restart:
     enabled: true
+  shutdown:
+    enabled: true
+
 logging:
   levels:
     org.springframework.boot.env.PropertySourcesLoader: TRACE
     org.springframework.web: DEBUG
+
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 10
+    leaseRenewalIntervalInSeconds: 1
     metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
