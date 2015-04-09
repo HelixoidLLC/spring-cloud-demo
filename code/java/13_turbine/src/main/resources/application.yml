@@ -1,0 +1,39 @@
+info:
+  component: Turbine
+
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+turbine:
+  appConfig: consumer
+  aggregator:
+    clusterConfig: CONSUMER
+#  clusterNameExpression: new String("default")
+
+server:
+  port: ${PORT:8989}
+
+# Separates management port from the main one
+#management:
+#  port: 8990
+
+logging:
+  level:
+    root: INFO
+    com.netflix.discovery: 'OFF'
+    # org.springframework.integration: DEBUG
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+#  client:
+#    registryFetchIntervalSeconds: 5
+##    serviceUrl:
+##      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/

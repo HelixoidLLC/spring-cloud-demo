@@ -1,0 +1,6 @@
+#!/bin/bash
+java -jar build/libs/turbine-0.1.0.jar
+
+# Turbine info: http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
+
+# Run dashboard and point to: localhost:8989//turbine.stream?cluster=CONSUMER
