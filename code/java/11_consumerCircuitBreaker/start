@@ -11,3 +11,4 @@ java -jar build/libs/mysvc-0.1.0.jar
 # spring.config.location - a Resource path, overrides name
 
 # Explanation of the dashboard: https://github.com/Netflix/Hystrix/wiki/Dashboard#installation-of-dashboard
+# Video of a running dashboard: http://techblog.netflix.com/2012/12/hystrix-dashboard-and-turbine.html

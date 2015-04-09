@@ -15,6 +15,12 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+project.ext {
+    springBootVersion = '1.2.2.RELEASE'
+    springCloudVersion = '1.0.0.RELEASE'
+//    springCloudVersion = '1.0.1.BUILD-SNAPSHOT'
+}
+
 jar {
     baseName = 'mysvc'
     version =  '0.1.0'
@@ -37,8 +43,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.cloud:spring-cloud-starter-hystrix:1.0.0.BUILD-SNAPSHOT")
-    compile("org.springframework.cloud:spring-cloud-starter-eureka:1.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix:$springCloudVersion")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka:$springCloudVersion")
 
 //    testCompile("org.springframework.boot:spring-boot-starter-test")
 //    testCompile("junit:junit")
