@@ -5,5 +5,8 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+  dashboard:
+    path: /dashboard
   server:
-    waitTimeInMsWhenSyncEmpty: 0
+    waitTimeInMsWhenSyncEmpty: 1
+#  password: ${SECURITY_USER_PASSWORD:password}

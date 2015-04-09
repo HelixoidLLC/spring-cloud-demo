@@ -12,8 +12,13 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+project.ext {
+    springBootVersion = '1.2.3.RELEASE'
+    springCloudVersion = '1.0.0.RELEASE'
+}
+
 jar {
-    baseName = 'mysvc'
+    baseName = 'eureka'
     version =  '0.1.0'
 }
 
@@ -41,7 +46,7 @@ dependencies {
     // end::jetty[]
 
     // tag::tomcat[]
-    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
     // end::tomcat[]
 
 //    compile("org.springframework.boot:spring-boot-starter") {
@@ -49,7 +54,7 @@ dependencies {
 //    }
 
 //    compile "org.springframework.boot:spring-boot-starter-data-mongodb"
-    compile ('org.springframework.cloud:spring-cloud-starter-eureka-server:1.0.0.BUILD-SNAPSHOT') {
+    compile ("org.springframework.cloud:spring-cloud-starter-eureka-server:$springCloudVersion") {
 //        exclude module: "ch.qos.logback:logback-classic"
 //        exclude module: 'logback-classic'
 //        exclude module: "org.mortbay.jetty:servlet-api"

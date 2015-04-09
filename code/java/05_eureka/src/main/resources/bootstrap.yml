@@ -3,3 +3,8 @@ spring:
     name: eureka
   main:
     show_banner: false
+  cloud:
+    config:
+      # Do not be the config client
+      enabled: false
+#      uri: ${vcap.services.${PREFIX:}configserver.credentials.uri:http://user:password@localhost:8888}
